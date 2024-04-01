@@ -1,0 +1,405 @@
+ * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(223, 223, 223);
+}
+nav{
+    background: pink;
+    height: 10vh;
+    width: 100%;
+}
+/* ============================nav   */
+nav {
+    padding: 1vw;
+    background: rgba(255, 255, 255, 0.23);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 10px -7px 24px 1px rgb(198 198 198);
+    position: relative;
+    z-index: 99;
+    position: fixed;
+}
+
+.logo {
+font-size: 2vw;
+}
+
+nav ul {
+    display: flex;
+    gap: 1vw;
+}
+
+nav ul li {
+    padding: .5vw 0;
+    list-style: none;
+    border: 2px solid rgb(210, 210, 210);
+    border-radius: 10vw;
+    position: relative;
+    overflow: hidden;
+}
+
+nav ul li::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    left: 0;
+    bottom: -100%;
+    border-radius: 50%;
+    transition: all ease 0.3s;
+}
+
+nav ul li:hover::after {
+    bottom: 0;
+    color: aliceblue;
+    border-radius: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 1vw;
+    z-index: 9;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: rgb(255, 255, 255);
+}
+/* ==========================page-1 */
+#page-1{
+    background: rgb(255, 255, 255);
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+    position: relative;
+}
+
+.circle{
+    height: 25vw;
+    width: 25vw;
+    background-color: gray;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+#page-1 .right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#page-1 .right .ditels p{
+    text-align: center;
+font-size: 1.5vw;
+line-height: 3vw;
+}
+
+#page-1 .right .ditels p .name{
+    font-size: 3vw;
+}
+.buttons{
+    padding: 1vw;
+}
+.white-btn{
+    border-radius: 25px;
+    padding: .8vw 1vw;
+    border: none;
+    font-size: 1vw;
+    transition: all 1s;
+    margin: 0 .5vw ;
+    animation: zoom 2s;
+}
+.white-btn:hover{
+    background: #000;
+    color: #fff;
+}
+.black-btn{
+    font-size: 1vw;
+    border-radius: 25px;
+    padding: .8vw 1vw;
+    border: none;
+    background: #000;
+    color: #fff;
+    transition: all 1s;
+    margin: 0 .5vw;
+    animation: zoom 2s;
+}
+.black-btn:hover{
+    background: #fff;
+    color: #000;
+}
+.my-smg a{
+    padding: .5vw;
+}
+@keyframes zoom {
+    from{
+        padding: 0;
+    }
+    to{
+        padding: .8vw 1vw;
+    }
+}
+
+/* ==========================page-2 */
+#page-2 {
+    background: rgb(243, 246, 239);
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+    flex-direction: column;
+    background-image: url(img/Education.jpg);
+    background-size: contain;
+    position: relative;
+}
+.overlap{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6), rgba(0, 0, 0, 0.4));
+    position: absolute;
+    top: 0;
+}
+
+#page-2 .header {
+    text-align: center;
+    padding: 5vw 0;
+    color: #fff;
+}
+
+.about {
+    font-size: 3vw;
+}
+
+#page-2 .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+}
+#page-2 .container .left .about {
+    color: #fff;
+    text-align: center;
+}
+#page-2 .container .right .about {
+    text-align: center;
+    color: #fff;
+}
+
+#page-2 .card {
+    background: white;
+    height: 10vw;
+    width: 100%;
+    margin: 2vw 0;
+    /* padding: 1vw; */
+}
+
+#page-2 .card p {
+    font-size: 1.5vw;
+}
+
+.rectangle {
+    height: 25vw;
+    width: 25vw;
+    background-color: gray;
+    border-radius: 10%;
+    display: inline-block;
+}
+
+.rectangle img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+/* ==========================page-3 */
+#page-3{
+    background: rgb(243, 246, 239);
+    height: 100vh;
+    width: 100%;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4vw;
+        flex-direction: column;
+        position: relative;
+}
+.header{
+    text-align: center;
+}
+.about{
+    font-size: 3vw;
+}
+#page-3 .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+    width: 80%;
+}
+#page-3 .left{
+    width: 50%;
+    /* background: gray; */
+}
+#page-3 .right{
+    width: 50%;
+    /* background: rgb(196, 68, 68); */
+}
+#page-3 .card{
+    background: white;
+    height: 20vw;
+    /* width: 100%; */
+    margin: 1vw;
+    padding: 1vw;
+}
+#page-3 .card p{
+    font-size: 1.5vw;
+}
+#page-3 .card .head{
+    font-size: 2vw;
+}
+.rectangle{
+height: 25vw;
+    width: 25vw;
+    background-color: gray;
+    border-radius: 10%;
+    display: inline-block;
+}
+.rectangle img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.card .right{
+    position: relative;
+}
+.project-btn{
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+.project-btn button{
+    padding: .5vw 1vw;
+    border-radius: 25px;
+    border: none;
+    color: #fff;
+    background: #000;
+    transition: all 1s;
+    margin: 1vw;
+}
+.project-btn button:hover{
+    background: #e0dede;
+    color: #000;
+}
+/* =======================page-4  */
+#page-4{
+    background: rgb(234, 240, 247);
+    height: 150vh;
+    width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4vw;
+        flex-direction: column;
+        position: relative;
+}
+.Projects{
+    font-size: 3vw;
+}
+#page-4 .card{
+display: flex;
+height: 20vw;
+margin: 0 20%;
+}
+.card{
+    background: #fff;
+    padding: .5rem;
+    border-radius: 20px;
+}
+.card img{
+height: 100%;
+width: 100%;
+object-fit: cover;
+border-radius: 15px;
+}
+.card .left{
+    width: 50%;
+}
+.card .right{
+    background: rgb(255, 255, 255);
+    width: 50%;
+    text-align: center;
+}
+.project-name{
+    font-size: 2.5vw;
+    padding: 1vw;
+}
+
+/* ============================ page-5  */
+#page-5{
+    background: rgb(255, 255, 255);
+    height: 70vh;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+    flex-direction: column;
+}
+#page-5 .head{
+    text-align: center;
+}
+.Contact{
+    font-size: 3vw;
+}
+.contact-line{
+    border: 2px solid black;
+    padding: 1vw 2vw;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 1vw 0;
+}
+#page-5 ul{
+    display: flex;
+    gap: 2vw;
+    list-style: none;
+    font-size: 1.5vw;
+    margin-top: 20%;
+    position: relative;
+}
+#page-5 ul li a{
+    text-decoration: none;
+    color: #000;
+}
+
+/* ============================== footer  */
+footer{
+    background: #000;
+    height: 10vh;
+    width: 100%;
+    position: relative;
+}
+footer p{
+    color: #fff;
+    text-align: center;
+    padding-top: 1.5vw;
+}
