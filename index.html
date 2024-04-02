@@ -9,25 +9,58 @@
 </head>
 
 <body>
+    <!-- =========================== loder ================= -->
+    <div>
+        <div id="loader">
+            <h1>Hello</h1>
+            <h1>I am Sangram</h1>
+            <h1>Welcome</h1>
+        </div>
+    </div>
     <!-- =====================navigation=================== -->
-
+    <div class="page"></div>
     <nav>
         <div class="logo">Sangram</div>
         <div>
             <ul>
-                <li><a href="">Home</a> </li>
-                <li><a href="">Education</a></li>
-                <li><a href="">Skills</a></li>
-                <li><a href="">Projects</a></li>
-                <li><a href="">Contact Me</a></li>
+                <li><a href="#page-1">Home</a> </li>
+                <li><a href="#page-2">Education</a></li>
+                <li><a href="#page-3">Skills</a></li>
+                <li><a href="#page-4">Projects</a></li>
+                <li><a href="#page-5">Contact Me</a></li>
             </ul>
+
+            <div class="box">
+                <div class="responsive" onclick="navChange()">
+                    <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-article" width="44"
+                            height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                            <path d="M7 8h10" />
+                            <path d="M7 12h10" />
+                            <path d="M7 16h10" />
+                        </svg></div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-rounded-x"
+                            width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M10 10l4 4m0 -4l-4 4" />
+                            <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
     <div id="mail">
         <!-- =====================page-1=================== -->
         <div id="page-1">
-            <div class="circle"></div>
+            <div class="circle">
+                <img src="img/sangram.png" alt="">
+            </div>
             <div class="right">
                 <div class="ditels">
                     <p>Hello,I'am
@@ -40,17 +73,17 @@
                     <button class="btn black-btn">Contact Info</button>
                 </div>
                 <div class="my-smg">
-                    <a href=""><svg fill="#000000" height="35px" width="35px" version="1.1" id="Layer_1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            viewBox="-143 145 512 512" xml:space="preserve">
+                    <a href="https://www.linkedin.com/in/sangram-bal-854a36222/"><svg fill="#000000" height="35px"
+                            width="35px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve">
                             <path d="M329,145h-432c-22.1,0-40,17.9-40,40v432c0,22.1,17.9,40,40,40h432c22.1,0,40-17.9,40-40V185C369,162.9,351.1,145,329,145z
                     	 M41.4,508.1H-8.5V348.4h49.9V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7
                     	c18.4,0,29.7,11.9,30.1,27.7C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4
                     	c-14.9,0-23.2,10-27,19.6c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6
                     	c35.5,0,63.3,23,63.3,72.4V508.1z" />
                         </svg></a>
-                    <a href=""><svg width="35px" height="35px" viewBox="0 0 73 73" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <a href="https://github.com/balsangram"><svg width="35px" height="35px" viewBox="0 0 73 73"
+                            version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
                             <title>team-collaboration/version-control/git</title>
                             <desc>Created with Sketch.</desc>
@@ -107,7 +140,7 @@
                 </div>
                 <div class="container">
                     <div class="left">
-                        <p class="about">univercity</p>
+                        <p class="about">Univercity</p>
                         <div class="card">
                             <p>B.Tech</p>
                             <p>Sambalpur
@@ -115,37 +148,30 @@
                                 Institute of
                                 Information
                                 Technology</p>
-                            <p>Branch</p>
-                            <p>Mark</p>
-                            <p>batch</p>
+                            <p>Computer Science Engineering</p>
+                            <p>7.2 CGPA</p>
+                            <p>2023</p>
                         </div>
                         <div class="card">
-                            <p>corce</p>
-                            <p>Collage name</p>
-                            <p>Branch</p>
-                            <p>Mark</p>
-                            <p>batch</p>
+                            <p>Deploma</p>
+                            <p>Bhubananand
+                                a Odisha
+                                School of
+                                Engineering</p>
+                            <p>Computer Science Engineering</p>
+                            <p>73%</p>
+                            <p>2020</p>
                         </div>
                     </div>
                     <div class="right">
-                        <p class="about">Corces</p>
+                        <p class="about">Course</p>
                         <div class="card">
-                            <p>B.Tech</p>
-                            <p>Sambalpur
-                                University
-                                Institute of
-                                Information
-                                Technology</p>
-                            <p>Branch</p>
-                            <p>Mark</p>
-                            <p>batch</p>
+                            <p>FULL STACK JAVA</p>
+                            <p>DURGA Software Solutions</p>
                         </div>
                         <div class="card">
-                            <p>corce</p>
-                            <p>Collage name</p>
-                            <p>Branch</p>
-                            <p>Mark</p>
-                            <p>batch</p>
+                            <p>SOFTWARE TESTING</p>
+                            <p>Microsoft</p>
                         </div>
                     </div>
                 </div>
@@ -175,7 +201,7 @@
                 </div>
                 <div class="right">
                     <div class="card">
-                        <p class="head">BASIC</p>
+                        <p class="head">Basic</p>
                         <p>Java</p>
                         <p>C++</p>
                         <p>MongoDB</p>
@@ -199,12 +225,15 @@
             <!-- project-1  -->
             <div class="card">
                 <div class="left">
-                    <img src="https://miro.medium.com/max/2400/0*hDAyhnOx767w5qma.jpg" alt="">
+                    <img src="img/chart-app.png" alt="">
                 </div>
                 <div class="right">
-                    <p class="project-name">Lorem ipsum dolor sit.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores cupiditate minima quidem. Dicta,
-                        quod. Repudiandae accusantium eaque beatae illo eligendi.</p>
+                    <p class="project-name">Chat Application</p>
+                    <p class="ditels">•Implemented authentication and authorization using JWT, ensuring multi users
+                        secure access to the chat application.</p>
+                    <p class="ditels">•Leveraged Socket.IO to enable real-time communication , enhancing the
+                        interactivity of the chat
+                        application.</p>
                     <div class="project-btn">
                         <button>Code</button>
                         <button>Live</button>
@@ -212,18 +241,25 @@
                 </div>
             </div>
             <!-- project-2  -->
-            <div class="card">
+            <div class=" card-re">
                 <div class="right">
-                    <p class="project-name">Lorem ipsum dolor sit.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores cupiditate minima quidem. Dicta,
-                        quod. Repudiandae accusantium eaque beatae illo eligendi.</p>
+                    <p class="project-name">E-Commerce Website</p>
+                    <p class="ditels">•Experienced in developing e-commerce frontend projects utilizing ReactJS, HTML5,
+                        CSS3, and JavaScript.</p>
+                    <p class="ditels">•Successfully created a dynamic shopping website integrated with Fake Store API,
+                        employing React
+                        Router Dom and React
+                        Redux for seamless navigation and state management.</p>
+                    <p class="ditels">•Proficient in adding and managing products within the cart feature for enhanced
+                        user experience.
+                    </p>
                     <div class="project-btn">
                         <button>Code</button>
                         <button>Live</button>
                     </div>
                 </div>
                 <div class="left">
-                    <img src="https://miro.medium.com/max/2400/0*hDAyhnOx767w5qma.jpg" alt="">
+                    <img src="img/e-commerce.png" alt="">
                 </div>
             </div>
         </div>
@@ -243,7 +279,7 @@
             	L57.679,60H156.657z M161.667,156h-109V76.259l50.244,38.11c1.347,1.03,3.34,1.545,4.947,1.545c1.645,0,3.073-0.54,4.435-1.616
             	l49.374-39.276V156z" />
                 </svg>
-                <label for="">@email.com</label>
+                <label for=""><a href="mailto:email@gmail.com,balsangram1@gmail.com">@email.com</a> </label>
                 <svg fill="#000000" height="25px" width="25px" version="1.1" id="Capa_1"
                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 216 216"
                     xml:space="preserve">
@@ -251,15 +287,15 @@
             	L57.679,60H156.657z M161.667,156h-109V76.259l50.244,38.11c1.347,1.03,3.34,1.545,4.947,1.545c1.645,0,3.073-0.54,4.435-1.616
             	l49.374-39.276V156z" />
                 </svg>
-                <label for="">Linkdin</label>
+                <label for=""> <a href="https://www.linkedin.com/in/sangram-bal-854a36222/">Linkdin</a></label>
             </div>
             <div>
                 <ul>
-                    <li><a href="">Home</a> </li>
-                    <li><a href="">Education</a></li>
-                    <li><a href="">Skills</a></li>
-                    <li><a href="">Projects</a></li>
-                    <li><a href="">Contact Me</a></li>
+                    <li><a href="#page-1">Home</a> </li>
+                    <li><a href="#page-2">Education</a></li>
+                    <li><a href="#page-3">Skills</a></li>
+                    <li><a href="#page-4">Projects</a></li>
+                    <li><a href="#page-5">Contact Me</a></li>
                 </ul>
             </div>
         </div>

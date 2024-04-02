@@ -3,16 +3,62 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    background: rgb(223, 223, 223);
-}
-nav{
-    background: pink;
-    height: 10vh;
-    width: 100%;
-}
+/* ==========================loder  */
+                #loader {
+                    height: 100%;
+                    width: 100%;
+                    background-color: black;
+                    position: fixed;
+                    z-index: 999;
+                    top: 0;
+                    transition: all linear 0.3s;
+        
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+        
+                #loader h1 {
+                    font-size: 4vw;
+                    background: linear-gradient(to right, rgb(255, 255, 255), rgb(152, 150, 149));
+                    color: transparent;
+                    -webkit-background-clip: text;
+                    position: absolute;
+                    opacity: 0;
+                    animation-name: load;
+                    animation-duration: 1s;
+                    animation-delay: 1s;
+                    animation-timing-function: linear;
+                }
+        
+                #loader h1:nth-child(2) {
+                    animation-delay: 2s;
+                }
+        
+                #loader h1:nth-child(3) {
+                    animation-delay: 3s;
+                }
+        
+                @keyframes load {
+                    0% {
+                        opacity: 0;
+                    }
+        
+                    10% {
+                        opacity: 1;
+                    }
+        
+                    90% {
+                        opacity: 1;
+                    }
+        
+                    100% {
+                        opacity: 0;
+                    }
+                }
 /* ============================nav   */
 nav {
+        width: 100%;
     padding: 1vw;
     background: rgba(255, 255, 255, 0.23);
     display: flex;
@@ -34,6 +80,7 @@ nav ul {
 }
 
 nav ul li {
+
     padding: .5vw 0;
     list-style: none;
     border: 2px solid rgb(210, 210, 210);
@@ -69,11 +116,14 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: rgb(255, 255, 255);
+    color: rgb(232, 232, 232);
+}
+.responsive{
+    display: none;
 }
 /* ==========================page-1 */
 #page-1{
-    background: rgb(255, 255, 255);
+    background: rgb(220, 220, 220);
     height: 100vh;
     width: 100%;
 
@@ -87,9 +137,18 @@ nav ul li a:hover {
 .circle{
     height: 25vw;
     width: 25vw;
-    background-color: gray;
+    background-color: #659196;
     border-radius: 50%;
     display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+.circle img{
+    position: absolute;
+        height: 25vw;
+        /* mix-blend-mode: multiply; */
+        left: 8px;
+        bottom: -1px;
 }
 
 #page-1 .right{
@@ -261,7 +320,7 @@ line-height: 3vw;
 #page-3 .card{
     background: white;
     height: 20vw;
-    /* width: 100%; */
+    width: 100%;
     margin: 1vw;
     padding: 1vw;
 }
@@ -270,40 +329,7 @@ line-height: 3vw;
 }
 #page-3 .card .head{
     font-size: 2vw;
-}
-.rectangle{
-height: 25vw;
-    width: 25vw;
-    background-color: gray;
-    border-radius: 10%;
-    display: inline-block;
-}
-.rectangle img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-}
-.card .right{
-    position: relative;
-}
-.project-btn{
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-}
-.project-btn button{
-    padding: .5vw 1vw;
-    border-radius: 25px;
-    border: none;
-    color: #fff;
-    background: #000;
-    transition: all 1s;
-    margin: 1vw;
-}
-.project-btn button:hover{
-    background: #e0dede;
-    color: #000;
+    font-weight: bold;
 }
 /* =======================page-4  */
 #page-4{
@@ -345,15 +371,83 @@ border-radius: 15px;
     width: 50%;
     text-align: center;
 }
+#page-4 .card-re{
+display: flex;
+height: 20vw;
+margin: 0 20%;
+}
+.card-re{
+    background: #fff;
+    padding: .5rem;
+    border-radius: 20px;
+}
+.card-re img{
+height: 100%;
+width: 100%;
+object-fit: cover;
+border-radius: 15px;
+}
+.card-re .left{
+    width: 50%;
+}
+.card-re .right{
+    background: rgb(255, 255, 255);
+    width: 50%;
+    text-align: center;
+}
 .project-name{
     font-size: 2.5vw;
     padding: 1vw;
 }
 
+.rectangle {
+    height: 25vw;
+    width: 25vw;
+    background-color: gray;
+    border-radius: 10%;
+    display: inline-block;
+}
+
+.rectangle img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card .right {
+    position: relative;
+}
+.card-re .right {
+    position: relative;
+}
+
+.project-btn {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+.ditels{
+    text-align: left;
+}
+.project-btn button {
+    padding: .5vw 1vw;
+    border-radius: 25px;
+    border: none;
+    color: #fff;
+    background: #000;
+    transition: all 1s;
+    margin: 1vw;
+}
+
+.project-btn button:hover {
+    background: #e0dede;
+    color: #000;
+}
 /* ============================ page-5  */
 #page-5{
     background: rgb(255, 255, 255);
-    height: 70vh;
+    height: 90vh;
     width: 100%;
     
     display: flex;
@@ -390,7 +484,13 @@ border-radius: 15px;
     text-decoration: none;
     color: #000;
 }
-
+#page-5 ul li a:hover{
+    color: #2e2e2e;
+}
+.contact-line label a{
+    color: #000;
+    text-decoration: none;
+}
 /* ============================== footer  */
 footer{
     background: #000;
@@ -402,4 +502,601 @@ footer p{
     color: #fff;
     text-align: center;
     padding-top: 1.5vw;
+}
+
+/* ======================== responsive ========================================================  */
+
+/* lg======1024 ========== */
+@media only screen and (max-width: 1024px) {
+/* nav  */
+.circle img {
+        position: absolute;
+        height: 40vw;
+        /* mix-blend-mode: multiply; */
+        left: 8px;
+        bottom: -1px;
+    }
+/* ==========================page-1 */
+.circle {
+    height: 40vw;
+    width: 40vw;
+}
+
+#page-1 .right .ditels p {
+    font-size: 3vw;
+    line-height: 5vw;
+}
+
+#page-1 .right .ditels p .name {
+    font-size: 6vw;
+}
+
+.buttons {
+    padding: 1vw;
+}
+
+.white-btn {
+    padding: 1.5vw 2.5vw;
+    border: none;
+    font-size: 2vw;
+}
+
+.black-btn {
+    font-size: 2vw;
+    padding: 1.5vw 2.5vw;
+    margin: 0 1vw;
+}
+
+/* ==========================page-2 */
+
+#page-2 .header {
+    text-align: center;
+    padding: 5vw 0;
+    color: #fff;
+}
+
+#page-2 .card{
+    padding: 5vw;
+    height: auto;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 2vw;
+}
+#page-2 .card p {
+    font-size: 1.8vw;
+}
+
+/* ==========================page-3 */
+
+
+.about {
+    font-size: 5vw;
+}
+
+#page-3 .card {
+    background: white;
+    height: 60vh;
+    width: 100%;
+    margin: 1vw;
+    padding: 3vw;
+}
+
+#page-3 .card p {
+    font-size: 2.5vw;
+}
+
+#page-3 .card .head {
+    font-size: 3.5vw;
+}
+
+/* =======================page-4  */
+.Projects {
+    font-size: 5vw;
+}
+
+#page-4 .card {
+    height: 40vw;
+    margin: 0 5%;
+    padding: .5rem;
+        border-radius: 20px;
+}
+#page-4 .card-re {
+    height: 40vw;
+    margin: 0 5%;
+    padding: .5rem;
+        border-radius: 20px;
+}
+
+.project-name {
+    font-size: 4vw;
+    padding: 1vw;
+}
+.ditels{
+    font-size: 2.5vw;
+    margin: 0 1vw;
+}
+
+.project-btn button {
+    padding: 1vw 2.5vw;
+    border-radius: 25px;
+    margin: 1vw;
+    font-size: 2vw;
+}
+
+/* ============================ page-5  */
+.Contact {
+    font-size: 5vw;
+}
+
+.contact-line {
+    padding: 1.8vw 3vw;
+    gap: 12px;
+}
+
+#page-5 ul {
+    font-size: 3vw;
+}
+
+/* ============================== footer  */
+footer {
+    background: #000;
+    height: 10vh;
+    width: 100%;
+    position: relative;
+}
+
+footer p {
+    color: #fff;
+    text-align: center;
+    padding-top: 1.5vw;
+}
+}
+/* md======768 ========== */
+@media only screen and (max-width: 768px) {
+/* nav  */
+/* ==========================page-1 */
+    .circle {
+        height: 40vw;
+        width: 40vw;
+    }
+
+    #page-1 .right .ditels p {
+        font-size: 4vw;
+        line-height: 7vw;
+    }
+
+    #page-1 .right .ditels p .name {
+        font-size: 7vw;
+    }
+
+    .white-btn {
+        padding: 2vw 3vw;
+        font-size: 2.5vw;
+    }
+
+    .black-btn {
+    padding: 2vw 3vw;
+    font-size: 2.5vw;
+    }
+
+    /* ==========================page-2 */
+        #page-2 .overlap .header .about {
+        font-size: 5vw;
+    }
+        #page-2 .overlap .container .about {
+        font-size: 5vw;
+    }
+    #page-2 .card {
+        background: white;
+    }
+
+    #page-2 .card p {
+        font-size: 2vw;
+    }
+
+    /* ==========================page-3 */
+    .header {
+        text-align: center;
+    }
+
+    .about {
+        font-size: 5vw;
+    }
+
+    #page-3 .container {
+        width: 90%;
+    }
+
+    #page-3 .card {
+        background: white;
+        height: auto;
+        width: 100%;
+        margin: 1vw;
+        padding: 1vw;
+    }
+
+    #page-3 .card p {
+        font-size: 2.5vw;
+    }
+
+    #page-3 .card .head {
+        font-size: 3.5vw;
+    }
+
+    /* =======================page-4  */
+    #page-4 {
+        height: 100vh;
+    }
+
+    .Projects {
+        font-size: 5vw;
+    }
+
+    #page-4 .card {
+        height: auto;
+        margin: 0 20%;
+    }
+
+    .card{
+        width: 90%;
+    }
+    .card-re{
+        width: 90%;
+    }
+
+    .project-name {
+        font-size: 3.5vw;
+        font-weight: bold;
+    }
+
+    /* ============================ page-5  */
+    .Contact {
+        font-size: 5vw;
+    }
+
+    #page-5 ul {
+        font-size: 2.5vw;
+    }
+
+    /* ============================== footer  */
+    footer {
+        background: #000;
+        height: 10vh;
+        width: 100%;
+        position: relative;
+    }
+
+    footer p {
+        color: #fff;
+        text-align: center;
+        padding-top: 1.5vw;
+    }
+}
+/* sm======640 ========== */
+
+
+@media only screen and (max-width: 640px) {
+    /* nav  */
+    .circle img {
+            height: 50vw;
+        }
+    body{
+        position: relative;
+    }
+    .page {
+        width: 100%;
+        position: fixed;
+        height: 0vh;
+        background: rgba(0, 0, 0, 0.662);
+        top: 0;
+        z-index: 1;
+        transition: all 1s;
+    }
+    nav{
+        /* position: absolute; */
+        height: 7vh;
+        background: #fff;
+        transition: all 2s;
+        position: fixed;
+    }
+        .logo {
+            font-size: 5vw;
+            padding: 0 4vw;
+            position: absolute;
+            top: 10px;
+        }
+    
+        nav ul {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 7rem;
+            left: 3rem;
+            gap: 3rem;
+            font-size: 1.5rem;
+        }
+nav ul li {
+    position: relative;
+    margin: 15px;
+}
+
+        .responsive{
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: .5vw 3vw;
+        }
+        .box{
+            overflow: hidden;
+            /* background: green; */
+            height: 7vh;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 11vh;
+        }
+
+
+        /* page-1 */
+#page-1 {
+    padding-top: 15vw;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.circle {
+    height: 50vw;
+    width: 50vw;
+}
+
+#page-1 .right .ditels p {
+    font-size: 5vw;
+    line-height: 8vw;
+}
+
+#page-1 .right .ditels p .name {
+    font-size: 9vw;
+}
+
+.buttons {
+    padding: 3vw;
+}
+
+.white-btn {
+    padding: 2vw 3vw;
+    font-size: 3vw;
+    margin: 0 .5vw;
+    background: #7f7f7f;
+}
+
+.black-btn {
+    font-size: 3vw;
+    border-radius: 25px;
+    padding: 2vw 3vw;
+    background: #000;
+    color: #fff;
+}
+
+.black-btn:hover {
+    background: #9d9d9d;
+    color: #000;
+}
+
+/* page-2 */
+
+#page-2{
+    height: 100vh;
+}
+.about {
+    font-size: 7vw;
+    padding: 1vw;
+}
+
+#page-2 .container {
+    flex-direction: column;
+    /* justify-content: flex-start; */
+}
+
+#page-2 .card {
+    background: white;
+    height: 20vw;
+    width: 100%;
+    margin: 1vw 0;
+    padding: 4vw;
+}
+
+#page-2 .card p {
+    font-size: 2.5vw;
+}
+
+.rectangle img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* page-3 */
+
+#page-3{
+    background: rgb(208, 197, 199);
+}
+
+.about {
+    font-size: 7vw;
+}
+
+#page-3 .container {
+    flex-direction: column;
+}
+
+#page-3 .left {
+    width: 100%;
+}
+
+#page-3 .right {
+    width: 100%;
+}
+
+#page-3 .card {
+    background: white;
+    height: 100%;
+    padding: 4vw;
+}
+
+#page-3 .card p {
+    font-size: 3vw;
+    color:#363636;
+}
+
+#page-3 .card .head {
+    font-size: 5vw;
+    font-weight: bold;
+    color: #000;
+}
+
+/* page-4 */
+
+#page-4{
+    height: 200vh;
+}
+
+.Projects {
+    font-size: 7vw;
+}
+
+#page-4 .card {
+    display: flex;
+    height: auto;
+    margin: 0 1rem;
+}
+#page-4 .card-re {
+    display: flex;
+    height: auto;
+    margin: 0 1rem;
+    flex-direction: column-reverse;
+}
+
+
+.card {
+    background: #fff;
+    border-radius: 20px;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.card .left {
+    width: 100%;
+}
+
+.card .right {
+    background: rgb(255, 255, 255);
+    width: 100%;
+}
+.card-re {
+    background: #fff;
+    border-radius: 20px;
+    flex-direction: column;
+}
+
+.card-re img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.card-re .left {
+    width: 100%;
+}
+
+.card-re .right {
+    background: rgb(255, 255, 255);
+    width: 100%;
+}
+
+.project-name {
+    font-size: 5vw;
+    padding: 1vw;
+}
+
+.rectangle{
+height: 30%;
+    width: 100%;
+    background-color: gray;
+    border-radius: 10%;
+    display: inline-block;
+}
+.rectangle img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.card .right{
+    position: relative;
+    height: 15rem;
+}
+.card-re .right{
+    position: relative;
+    height: 15rem;
+}
+.project-btn button{
+    padding: .5vw 1vw;
+    border-radius: 25px;
+    border: none;
+    color: #fff;
+    background: #000;
+    transition: all 1s;
+    margin: 1vw;
+}
+.project-btn button:hover{
+    background: #e0dede;
+    color: #000;
+}
+
+.project-btn button {
+    padding: 1vw 2vw;
+    font-size: 3vw;
+}
+
+.project-btn button:hover {
+    background: #e0dede;
+    color: #000;
+}
+
+/* page-5 */
+#page-5{
+    height: 70vh;
+}
+.Contact {
+    font-size: 7vw;
+}
+
+.contact-line {
+    padding: 5vw 10vw;
+    margin: 5vw 0;
+}
+
+#page-5 ul {
+    display: flex;
+    gap: 3vw;
+    list-style: none;
+    font-size: 1.5vw;
+    /* margin-top: 50%; */
+    position: relative;
+}
+
+#page-5 ul li a {
+    font-size: 3vw;
+    font-weight: bold;
+}
+/* footer  */
+
+footer p {
+    padding-top: 5.5vw;
+}
 }
