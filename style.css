@@ -50,10 +50,26 @@
 }
 
 html {
-    scroll-behavior: smooth;
     scroll-padding-top: 80px;
     font-size: 16px;
     -webkit-tap-highlight-color: transparent;
+}
+
+/* Lenis Smooth Scroll Baseline */
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+    overflow: hidden;
 }
 
 body {
@@ -926,7 +942,7 @@ img {
 }
 
 .project-card {
-    background: var(--glass-bg);
+    background: radial-gradient(circle at var(--shine-x, 50%) var(--shine-y, 50%), rgba(6, 182, 212, 0.08) 0%, var(--glass-bg) 65%);
     backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
     border-radius: 16px;

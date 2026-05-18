@@ -4,6 +4,35 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     // -------------------------------------------------------------
+    // 0. Smooth Momentum Scroll Initialization (Lenis + GSAP Sync)
+    // -------------------------------------------------------------
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // High-fidelity inertia easing
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1.0,
+        touchMultiplier: 1.5,
+        infinite: false
+    });
+
+    // Make lenis globally accessible for link overrides
+    window.lenis = lenis;
+
+    // Connect Lenis with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+
+    // Freeze scroll during compilation loading screen
+    lenis.stop();
+
+    // -------------------------------------------------------------
     // 1. Terminal Loader Fade-Out
     // -------------------------------------------------------------
     const loader = document.getElementById("loader");
@@ -43,9 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
             loader.classList.add("fade-out");
             document.body.style.overflowY = "auto"; // Unlock scroll
             
+            // Unlock Lenis scroll engine
+            lenis.start();
+            
             // GSAP Entrance Animations
             initHeroGSAP();
             initScrollAnimations();
+            initProject3DTilt();
         }
     }, 3400);
 
@@ -113,18 +146,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Scroll to top action
+    // Scroll to top action using Lenis
     if (scrollToTopBtn) {
         scrollToTopBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+            lenis.scrollTo(0, { duration: 1.5 });
         });
     }
 
     // -------------------------------------------------------------
-    // 4. Responsive Navigation Drawer
+    // 4. Responsive Navigation Drawer & Lenis Scroll Binding
     // -------------------------------------------------------------
     const menuToggle = document.getElementById("menu-toggle");
     const navMenu = document.getElementById("nav-menu");
@@ -139,8 +169,10 @@ document.addEventListener("DOMContentLoaded", () => {
         // Prevent body scrolling when menu is open
         if (navMenu.classList.contains("active")) {
             document.body.style.overflow = "hidden";
+            lenis.stop(); // Stop Lenis scroll when menu is active
         } else {
             document.body.style.overflow = "auto";
+            lenis.start(); // Resume Lenis scroll
         }
     }
     
@@ -152,9 +184,17 @@ document.addEventListener("DOMContentLoaded", () => {
         navOverlay.addEventListener("click", toggleMenu);
     }
     
-    // Close drawer when link is clicked
+    // Close drawer and trigger smooth Lenis scroll to anchor
     navLinks.forEach(link => {
-        link.addEventListener("click", () => {
+        link.addEventListener("click", (e) => {
+            const targetId = link.getAttribute("href");
+            if (targetId && targetId.startsWith("#")) {
+                e.preventDefault();
+                const targetSec = document.querySelector(targetId);
+                if (targetSec) {
+                    lenis.scrollTo(targetSec, { offset: -80, duration: 1.2 });
+                }
+            }
             if (navMenu.classList.contains("active")) {
                 toggleMenu();
             }
@@ -387,4 +427,52 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     });
+
+    // -------------------------------------------------------------
+    // 8. 3D Card Hover Tilt Animation Suite
+    // -------------------------------------------------------------
+    function initProject3DTilt() {
+        const cards = document.querySelectorAll(".project-card");
+        if (cards.length === 0) return;
+
+        cards.forEach(card => {
+            card.addEventListener("mousemove", e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const xc = (x / rect.width) - 0.5;
+                const yc = (y / rect.height) - 0.5;
+                const rotateY = xc * 16;
+                const rotateX = -yc * 16;
+                const shineX = (x / rect.width) * 100;
+                const shineY = (y / rect.height) * 100;
+                
+                card.style.setProperty("--shine-x", `${shineX}%`);
+                card.style.setProperty("--shine-y", `${shineY}%`);
+
+                gsap.to(card, {
+                    rotationY: rotateY,
+                    rotationX: rotateX,
+                    scale: 1.025,
+                    transformPerspective: 1000,
+                    ease: "power2.out",
+                    duration: 0.3,
+                    boxShadow: "0 20px 40px rgba(6, 182, 212, 0.08), 0 0 25px rgba(6, 182, 212, 0.15)",
+                    borderColor: "rgba(6, 182, 212, 0.3)"
+                });
+            });
+
+            card.addEventListener("mouseleave", () => {
+                gsap.to(card, {
+                    rotationY: 0,
+                    rotationX: 0,
+                    scale: 1,
+                    ease: "power3.out",
+                    duration: 0.6,
+                    boxShadow: "var(--shadow-sm)",
+                    borderColor: "var(--glass-border)"
+                });
+            });
+        });
+    }
 });
