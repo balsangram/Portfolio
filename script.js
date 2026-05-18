@@ -1,31 +1,390 @@
-const Responsive = document.querySelector(".responsive");
-const Nav = document.querySelector("nav");
-const Page = document.querySelector(".page");
-const navUl = document.querySelector("nav ul");
-let flag = true;
+/**
+ * Sangram Bal Portfolio - Core Interactivity Script (script.js)
+ */
 
-function navChange() {
-  if (flag) {
-    Responsive.style.top = "-49px";
-    Nav.style.height = "70vh";
-    Page.style.height = "100vh";
-    navUl.style.display = "block";
-    console.log("Moved up");
-    flag = false;
-  } else {
-    Responsive.style.top = "0px";
-    Nav.style.height = "7vh";
-    Page.style.height = "0vh";
-    navUl.style.display = "none";
-    console.log("Moved down");
-    flag = true;
-  }
-}
+document.addEventListener("DOMContentLoaded", () => {
+    // -------------------------------------------------------------
+    // 1. Terminal Loader Fade-Out
+    // -------------------------------------------------------------
+    const loader = document.getElementById("loader");
+    const typingLoader = document.querySelector(".typing-loader");
+    
+    // Simulate terminal typing in the loader prompt before page displays
+    if (typingLoader) {
+        let loadSteps = ["echo 'Launch Complete!';", "exit;"];
+        let stepIndex = 0;
+        let charIndex = 0;
+        
+        function typeLoaderCommand() {
+            if (stepIndex < loadSteps.length) {
+                let currentWord = loadSteps[stepIndex];
+                if (charIndex < currentWord.length) {
+                    typingLoader.textContent += currentWord.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeLoaderCommand, 40);
+                } else {
+                    stepIndex++;
+                    charIndex = 0;
+                    if (stepIndex < loadSteps.length) {
+                        setTimeout(() => {
+                            typingLoader.textContent = "";
+                            typeLoaderCommand();
+                        }, 500);
+                    }
+                }
+            }
+        }
+        setTimeout(typeLoaderCommand, 1800);
+    }
 
-// ============================ loder =========
-const loader = document.querySelector("#loader");
-function showAlert() {
-  loader.style.top = "-100%";
-}
+    // Hide loader after a brief compilation simulation (3.4 seconds total)
+    setTimeout(() => {
+        if (loader) {
+            loader.classList.add("fade-out");
+            document.body.style.overflowY = "auto"; // Unlock scroll
+            
+            // GSAP Entrance Animations
+            initHeroGSAP();
+            initScrollAnimations();
+        }
+    }, 3400);
 
-setTimeout(showAlert, 4000);
+    // -------------------------------------------------------------
+    // 2. Typing Animation (Hero Subtitle)
+    // -------------------------------------------------------------
+    const typingSpan = document.getElementById("typing-text");
+    const roles = ["Go Backend Developer", "Software Engineer", "Systems Architect"];
+    let roleIndex = 0;
+    let textIndex = 0;
+    let isDeleting = false;
+    
+    function typeEffect() {
+        if (!typingSpan) return;
+        
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+            // Delete text
+            typingSpan.textContent = currentRole.substring(0, textIndex - 1);
+            textIndex--;
+        } else {
+            // Write text
+            typingSpan.textContent = currentRole.substring(0, textIndex + 1);
+            textIndex++;
+        }
+        
+        let typeSpeed = isDeleting ? 40 : 100;
+        
+        if (!isDeleting && textIndex === currentRole.length) {
+            // Pause at full word
+            typeSpeed = 2000;
+            isDeleting = true;
+        } else if (isDeleting && textIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            typeSpeed = 500;
+        }
+        
+        setTimeout(typeEffect, typeSpeed);
+    }
+    
+    // Start typing after loader finishes
+    setTimeout(typeEffect, 3800);
+
+    // -------------------------------------------------------------
+    // 3. Floating Navbar & Scroll-to-Top Toggle
+    // -------------------------------------------------------------
+    const navbar = document.getElementById("navbar");
+    const scrollToTopBtn = document.getElementById("scroll-to-top");
+    
+    window.addEventListener("scroll", () => {
+        // Toggle navbar class
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+        
+        // Toggle scroll-to-top button
+        if (window.scrollY > 600) {
+            scrollToTopBtn.classList.add("active");
+        } else {
+            scrollToTopBtn.classList.remove("active");
+        }
+    });
+
+    // Scroll to top action
+    if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+
+    // -------------------------------------------------------------
+    // 4. Responsive Navigation Drawer
+    // -------------------------------------------------------------
+    const menuToggle = document.getElementById("menu-toggle");
+    const navMenu = document.getElementById("nav-menu");
+    const navOverlay = document.getElementById("nav-overlay");
+    const navLinks = document.querySelectorAll(".nav-link");
+    
+    function toggleMenu() {
+        menuToggle.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        navOverlay.classList.toggle("active");
+        
+        // Prevent body scrolling when menu is open
+        if (navMenu.classList.contains("active")) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }
+    
+    if (menuToggle) {
+        menuToggle.addEventListener("click", toggleMenu);
+    }
+    
+    if (navOverlay) {
+        navOverlay.addEventListener("click", toggleMenu);
+    }
+    
+    // Close drawer when link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (navMenu.classList.contains("active")) {
+                toggleMenu();
+            }
+        });
+    });
+
+    // -------------------------------------------------------------
+    // 5. Scroll Active Link Highlighting
+    // -------------------------------------------------------------
+    const sections = document.querySelectorAll("section");
+    
+    window.addEventListener("scroll", () => {
+        let currentSec = "";
+        const scrollPosition = window.scrollY + 120; // Offset for navbar height
+        
+        sections.forEach(sec => {
+            const secTop = sec.offsetTop;
+            const secHeight = sec.clientHeight;
+            if (scrollPosition >= secTop && scrollPosition < secTop + secHeight) {
+                currentSec = sec.getAttribute("id");
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${currentSec}`) {
+                link.classList.add("active");
+            }
+        });
+    });
+
+    // -------------------------------------------------------------
+    // 6. GSAP Entrance and Scroll animations
+    // -------------------------------------------------------------
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger);
+
+    function initHeroGSAP() {
+        const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
+        
+        // Set initial states for elements
+        gsap.set(".hero-content > *", { opacity: 0, y: 30 });
+        gsap.set(".hero-avatar", { opacity: 0, scale: 0.8 });
+        gsap.set(".tech-orbit", { opacity: 0, scale: 0.5 });
+        gsap.set(".floating-tech", { opacity: 0, y: 20 });
+        
+        tl.to(".hero-avatar", { opacity: 1, scale: 1, duration: 1.2, ease: "elastic.out(1, 0.75)" })
+          .to(".tech-orbit", { opacity: 0.15, scale: 1, stagger: 0.15, duration: 0.8 }, "-=0.8")
+          .to(".hero-tag", { opacity: 1, y: 0, duration: 0.6 }, "-=0.6")
+          .to(".hero-title", { opacity: 1, y: 0, duration: 0.8 }, "-=0.5")
+          .to(".hero-subtitle", { opacity: 1, y: 0, duration: 0.6 }, "-=0.5")
+          .to(".hero-description", { opacity: 1, y: 0, duration: 0.8 }, "-=0.5")
+          .to(".hero-actions", { opacity: 1, y: 0, duration: 0.8 }, "-=0.6")
+          .to(".social-links .social-icon", { opacity: 1, y: 0, stagger: 0.15, duration: 0.6 }, "-=0.6")
+          .to(".floating-tech", { opacity: 1, y: 0, stagger: 0.15, duration: 0.8, ease: "back.out(1.7)" }, "-=0.5")
+          .add(() => {
+              // Start infinite floating animations for tech icons
+              gsap.to(".go-node", { y: -10, yoyo: true, repeat: -1, duration: 2.5, ease: "power1.inOut" });
+              gsap.to(".redis-node", { y: 12, x: -5, yoyo: true, repeat: -1, duration: 3.2, ease: "power1.inOut" });
+              gsap.to(".db-node", { y: -8, x: 8, yoyo: true, repeat: -1, duration: 2.8, ease: "power1.inOut" });
+              
+              // Infinite subtle rotation for rings
+              gsap.to(".ring-1", { rotate: 360, repeat: -1, duration: 20, ease: "none" });
+              gsap.to(".ring-2", { rotate: -360, repeat: -1, duration: 30, ease: "none" });
+          });
+    }
+
+    function initScrollAnimations() {
+        // Ensure all parent reveal containers are visible for GSAP child animations
+        const parentReveals = document.querySelectorAll(".timeline, .skills-showcase, .education-timeline, .contact-info, .section-header");
+        gsap.set(parentReveals, { opacity: 1, y: 0 });
+
+        // Universal section header animation
+        const sectionHeaders = document.querySelectorAll(".section-header");
+        sectionHeaders.forEach(header => {
+            const title = header.querySelector(".section-title");
+            const line = header.querySelector(".section-line");
+            const subtitle = header.querySelector(".section-subtitle");
+            
+            const headerTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: header,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                }
+            });
+            
+            gsap.set([title, subtitle], { opacity: 0, y: 25 });
+            gsap.set(line, { scaleX: 0, transformOrigin: "center center" });
+            
+            headerTl.to(title, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" })
+                    .to(line, { scaleX: 1, duration: 0.6, ease: "power2.inOut" }, "-=0.3")
+                    .to(subtitle, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, "-=0.4");
+        });
+
+        // 1. Experience Timeline Cards Animation
+        const timelineItems = document.querySelectorAll(".timeline-item");
+        if (timelineItems.length > 0) {
+            timelineItems.forEach(item => {
+                const card = item.querySelector(".timeline-card");
+                const badge = item.querySelector(".timeline-badge");
+                
+                const itemTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    }
+                });
+                
+                gsap.set(card, { opacity: 0, x: 50 });
+                gsap.set(badge, { opacity: 0, scale: 0.3 });
+                
+                itemTl.to(badge, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" })
+                      .to(card, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" }, "-=0.25");
+            });
+        }
+
+        // 2. Projects Grid Animation
+        const projectsGrid = document.querySelector(".projects-grid");
+        if (projectsGrid) {
+            const projectCards = projectsGrid.querySelectorAll(".project-card");
+            
+            gsap.set(projectCards, { opacity: 0, y: 40 });
+            
+            ScrollTrigger.batch(projectCards, {
+                onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power3.out", overwrite: "auto" }),
+                start: "top 85%"
+            });
+        }
+
+        // 3. Technical Expertise Skills Tab/Cards Animation
+        const activeTabContent = document.querySelector(".tab-content.active");
+        if (activeTabContent) {
+            const skillCards = activeTabContent.querySelectorAll(".skill-card");
+            
+            gsap.set(skillCards, { opacity: 0, scale: 0.9, y: 20 });
+            
+            ScrollTrigger.batch(skillCards, {
+                onEnter: batch => gsap.to(batch, { opacity: 1, scale: 1, y: 0, duration: 0.6, stagger: 0.08, ease: "back.out(1.2)", overwrite: "auto" }),
+                start: "top 85%"
+            });
+        }
+        
+        // Trigger level fill width animation when skills tab container enters view
+        const skillsShowcase = document.querySelector(".skills-showcase");
+        if (skillsShowcase) {
+            ScrollTrigger.create({
+                trigger: skillsShowcase,
+                start: "top 80%",
+                onEnter: () => {
+                    const levelFills = document.querySelectorAll(".level-fill");
+                    levelFills.forEach(fill => {
+                        const targetWidth = fill.style.width;
+                        gsap.fromTo(fill, { width: "0%" }, { width: targetWidth, duration: 1.5, ease: "power3.out" });
+                    });
+                }
+            });
+        }
+
+        // 4. Education Timeline Animation
+        const educationTimeline = document.querySelector(".education-timeline");
+        if (educationTimeline) {
+            const eduCards = educationTimeline.querySelectorAll(".education-card");
+            
+            eduCards.forEach(card => {
+                gsap.set(card, { opacity: 0, y: 30 });
+                gsap.to(card, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+        }
+
+        // 5. Contact Info Items Animation
+        const contactWrapper = document.querySelector(".contact-wrapper");
+        if (contactWrapper) {
+            const infoCards = contactWrapper.querySelectorAll(".info-item-card");
+            
+            gsap.set(infoCards, { opacity: 0, y: 30, scale: 0.95 });
+            
+            ScrollTrigger.batch(infoCards, {
+                onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, scale: 1, duration: 0.8, stagger: 0.15, ease: "back.out(1.4)", overwrite: "auto" }),
+                start: "top 85%"
+            });
+        }
+    }
+
+    // -------------------------------------------------------------
+    // 7. Skills Tab Switching Layout with GSAP
+    // -------------------------------------------------------------
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
+    
+    tabButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const targetTab = button.getAttribute("data-tab");
+            
+            // Toggle Button States
+            tabButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+            
+            // Toggle Panel Visibility with GSAP Animation
+            tabContents.forEach(content => {
+                content.classList.remove("active");
+                if (content.getAttribute("id") === targetTab) {
+                    setTimeout(() => {
+                        content.classList.add("active");
+                        
+                        // GSAP animate the newly active tab cards!
+                        const cards = content.querySelectorAll(".skill-card");
+                        const fills = content.querySelectorAll(".level-fill");
+                        
+                        gsap.set(cards, { opacity: 0, scale: 0.9, y: 15 });
+                        gsap.to(cards, { opacity: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.05, ease: "back.out(1.2)" });
+                        
+                        fills.forEach(fill => {
+                            const targetWidth = fill.style.width;
+                            gsap.fromTo(fill, { width: "0%" }, { width: targetWidth, duration: 1.0, ease: "power2.out" });
+                        });
+                    }, 50);
+                }
+            });
+        });
+    });
+});

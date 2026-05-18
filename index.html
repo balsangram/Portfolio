@@ -4,307 +4,701 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Sangram Bal - Software Engineer & Go Backend Developer. Building highly concurrent, performant, and secure REST/gRPC microservices.">
+    <meta name="keywords" content="Sangram Bal, Go Developer, Go Backend Developer, Software Engineer, Golang, Gin, Node.js, Bengaluru, Portfolio">
+    <meta name="author" content="Sangram Bal">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Sangram Bal | Go Backend Developer & Software Engineer</title>
 </head>
 
 <body>
-    <!-- =========================== loder ================= -->
-    <div>
-        <div id="loader">
-            <h1>Hello</h1>
-            <h1>I am Sangram</h1>
-            <h1>Welcome</h1>
+    <!-- =========================== Terminal Loader ================= -->
+    <div id="loader">
+        <div class="loader-terminal">
+            <div class="terminal-header">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-title">sangram_init.sh</span>
+            </div>
+            <div class="terminal-body" id="loader-console">
+                <p class="console-line"><span class="prompt">$</span> git clone https://github.com/balsangram/portfolio.git</p>
+                <p class="console-line text-muted">Cloning into 'portfolio'...</p>
+                <p class="console-line"><span class="prompt">$</span> cd portfolio && go run main.go</p>
+                <p class="console-line text-cyan">[SYSTEM] Initializing Go concurrency channels...</p>
+                <p class="console-line text-cyan">[SYSTEM] Connecting to PostgreSQL, MongoDB and Redis clusters...</p>
+                <p class="console-line text-green">[OK] Web Server listening on port 8080</p>
+                <p class="console-line text-yellow">[WELCOME] Sangram Bal Portfolio v2.0 successfully compiled.</p>
+                <p class="console-line cursor-line"><span class="prompt">$</span> <span class="typing-loader"></span></p>
+            </div>
         </div>
     </div>
-    <!-- =====================navigation=================== -->
-    <div class="page"></div>
-    <nav>
-        <div class="logo">Sangram</div>
-        <div>
-            <ul>
-                <li><a href="#page-1">Home</a> </li>
-                <!-- <li><a href="#page-2">Education</a></li> -->
-                <li><a href="#page-3">Skills</a></li>
-                <li><a href="#page-4">Projects</a></li>
-                <li><a href="#page-5">Contact Me</a></li>
-            </ul>
 
-            <div class="box">
-                <div class="responsive" onclick="navChange()">
-                    <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-article" width="44"
-                            height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-                            <path d="M7 8h10" />
-                            <path d="M7 12h10" />
-                            <path d="M7 16h10" />
-                        </svg></div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-rounded-x"
-                            width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M10 10l4 4m0 -4l-4 4" />
-                            <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
-                        </svg>
-                    </div>
+    <!-- ===================== Navigation =================== -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo" id="logo-link">Sangram<span class="dot">.go</span></a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-cta-container">
+                    <a href="#contact" class="btn btn-primary nav-cta">Let's Connect</a>
                 </div>
             </div>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </nav>
 
-    <div id="mail">
-        <!-- =====================page-1=================== -->
-        <div id="page-1">
-            <div class="circle">
-                <img src="img/sangram.png" alt="">
-            </div>
-            <div class="right">
-                <div class="ditels">
-                    <p>Hello,I'am
-                        <br><span class="name">Sangram Bal</span>
-                        <br><span class="status">Fresher</span>
-                    </p>
-                </div>
-                <div class="buttons">
-                    <button class="white-btn">Download CV</button>
-                    <button class="btn black-btn">Contact Info</button>
-                </div>
-                <div class="my-smg">
-                    <a href="https://www.linkedin.com/in/sangram-bal-854a36222/"><svg fill="#000000" height="35px"
-                            width="35px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve">
-                            <path d="M329,145h-432c-22.1,0-40,17.9-40,40v432c0,22.1,17.9,40,40,40h432c22.1,0,40-17.9,40-40V185C369,162.9,351.1,145,329,145z
-                    	 M41.4,508.1H-8.5V348.4h49.9V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7
-                    	c18.4,0,29.7,11.9,30.1,27.7C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4
-                    	c-14.9,0-23.2,10-27,19.6c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6
-                    	c35.5,0,63.3,23,63.3,72.4V508.1z" />
-                        </svg></a>
-                    <a href="https://github.com/balsangram"><svg width="35px" height="35px" viewBox="0 0 73 73"
-                            version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-
-                            <title>team-collaboration/version-control/git</title>
-                            <desc>Created with Sketch.</desc>
-                            <defs>
-
-                            </defs>
-                            <g id="team-collaboration/version-control/git" stroke="none" stroke-width="1" fill="none"
-                                fill-rule="evenodd">
-                                <g id="container" transform="translate(2.000000, 2.000000)" fill="#000000"
-                                    fill-rule="nonzero" stroke="#000000" stroke-width="2">
-                                    <rect id="mask" x="-1" y="-1" width="71" height="71" rx="14">
-
-                                    </rect>
-                                </g>
-                                <g id="git-logo" transform="translate(21.000000, 19.000000)" fill-rule="nonzero">
-                                    <path
-                                        d="M19.43875,26.0023125 L14.8751875,26.0023125 L14.8751875,12.7198125 C14.5418125,12.836625 14.1139375,12.9639375 13.5206875,13.1004375 C13.7215,13.6779375 13.8750625,14.22 13.8750625,14.724 C13.8750625,16.3370625 13.388125,17.7414375 12.4208125,18.937125 C11.4495625,20.1328125 10.1974375,20.8455 8.6618125,21.0699375 C7.6538125,21.2195625 7.1498125,21.7629375 7.1498125,22.696125 C7.1498125,23.021625 7.31125,23.34975 7.639375,23.677875 C8.0685625,24.1543125 8.694625,24.4588125 9.52675,24.580875 C13.1295625,25.1386875 14.9276875,26.6349375 14.9276875,29.0788125 C14.9276875,32.9848125 12.5940625,34.9365 7.933375,34.9365 C6.0210625,34.9365 4.43425,34.59525 3.2018125,33.918 C1.6399375,33.0609375 0.838,31.7116875 0.838,29.8741875 C0.838,27.75975 1.927375,26.308125 4.310875,25.5285 L4.310875,25.455 C3.449875,24.92475 3.066625,24.118875 3.066625,23.0360625 C3.066625,21.625125 3.449875,20.743125 4.310875,20.38875 L4.310875,20.312625 C3.449875,20.037 2.791,19.407 2.161,18.42525 C1.45225,17.3660625 1.103125,16.236 1.103125,15.025875 C1.103125,13.2106875 1.7475625,11.7013125 3.0338125,10.4911875 C4.2675625,9.3585 5.738875,8.7915 7.453,8.7915 C8.6854375,8.7915 9.7800625,9.0920625 10.8379375,9.697125 C12.0218125,9.697125 13.398625,9.4044375 14.8778125,8.82825 L14.8778125,8.0368125 L19.441375,8.0368125 L19.441375,26.0023125 L19.43875,26.0023125 Z"
-                                        id="Path" fill="#FFFFFF">
-
-                                    </path>
-                                    <path
-                                        d="M19.1171875,5.2018125 C18.59875,5.7556875 17.98975,6.032625 17.2849375,6.032625 C16.5525625,6.032625 15.9304375,5.7556875 15.4133125,5.2018125 C14.8975,4.6479375 14.6389375,3.9916875 14.6389375,3.237 C14.6389375,2.457375 14.894875,1.788 15.4133125,1.2354375 C15.9304375,0.68025 16.553875,0.404625 17.2849375,0.404625 C17.987125,0.404625 18.5974375,0.68025 19.1171875,1.2354375 C19.633,1.7893125 19.8941875,2.4586875 19.8941875,3.237 C19.8941875,3.9916875 19.633,4.6479375 19.1171875,5.2018125 Z"
-                                        id="Path" fill="#FFFFFF">
-
-                                    </path>
-                                    <path
-                                        d="M30.5070625,25.2620625 C29.6434375,25.77 28.48975,26.0206875 27.179875,26.0206875 C25.342375,26.0206875 24.103375,25.3644375 23.3985625,24.0519375 C22.8683125,23.0728125 22.601875,21.52275 22.601875,19.407 L22.601875,12.93375 L20.3509375,12.93375 L20.3509375,8.767875 L22.601875,8.767875 L22.601875,6.363375 L26.675875,6.363375 C26.696875,6.956625 26.7270625,8.21925 26.7401875,8.767875 L30.2314375,8.767875 L30.2314375,12.93375 L26.7454375,12.93375 L26.7454375,19.5973125 C26.7454375,21.283875 27.2914375,22.129125 28.403125,22.129125 C29.18275,22.129125 29.8219375,21.9178125 30.511,21.4873125 L30.511,25.263375 L30.5070625,25.263375 L30.5070625,25.2620625 Z"
-                                        id="Path" fill="#FFFFFF">
-
-                                    </path>
-                                    <path
-                                        d="M7.602625,12.267 C6.017125,12.267 5.2230625,13.2001875 5.2230625,15.0639375 C5.2230625,16.8016875 6.017125,17.6705625 7.602625,17.6705625 C9.1395625,17.6705625 9.9060625,16.78725 9.9060625,15.025875 C9.9060625,14.2935 9.7301875,13.6648125 9.3784375,13.1371875 C8.94925,12.558375 8.358625,12.267 7.602625,12.267 Z"
-                                        id="Shape" fill="#000000">
-
-                                    </path>
-                                    <path
-                                        d="M4.8083125,29.64975 C4.8083125,30.9556875 5.91475,31.6119375 8.1315625,31.6119375 C10.0714375,31.6119375 11.0400625,30.93075 11.0400625,29.571 C11.0400625,28.2860625 9.9835,27.6429375 7.8664375,27.6429375 C5.8268125,27.6455625 4.807,28.3123125 4.8083125,29.64975 Z"
-                                        id="Shape" fill="#000000">
-
-                                    </path>
-                                </g>
-                            </g>
-                        </svg></a>
-                </div>
-            </div>
-        </div>
-        <!-- =====================page-2=================== -->
-        <!-- <div id="page-2">
-            <div class="overlap">
-                <div class="header">
-                    <p>Get To Know More
-                        <br> <span class="about">Me Education</span>
-                    </p>
-                </div>
-                <div class="container">
-                    <div class="left">
-                        <p class="about">Univercity</p>
-                        <div class="card">
-                            <p>B.Tech</p>
-                            <p>Sambalpur
-                                University
-                                Institute of
-                                Information
-                                Technology</p>
-                            <p>Computer Science Engineering</p>
-                            <p>7.2 CGPA</p>
-                            <p>2023</p>
-                        </div>
-                        <div class="card">
-                            <p>Deploma</p>
-                            <p>Bhubananand
-                                a Odisha
-                                School of
-                                Engineering</p>
-                            <p>Computer Science Engineering</p>
-                            <p>73%</p>
-                            <p>2020</p>
-                        </div>
+    <!-- ===================== Main Content =================== -->
+    <main id="main-content">
+        
+        <!-- ===================== Hero Section (Home) =================== -->
+        <section id="home" class="hero-section">
+            <div class="grid-background"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-tag">
+                        <span class="tag-icon">⚡</span>
+                        <span class="tag-text">Available for Full-time Roles</span>
                     </div>
-                    <div class="right">
-                        <p class="about">Course</p>
-                        <div class="card">
-                            <p>FULL STACK JAVA</p>
-                            <p>DURGA Software Solutions</p>
-                        </div>
-                        <div class="card">
-                            <p>SOFTWARE TESTING</p>
-                            <p>Microsoft</p>
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="text-gradient">Sangram Bal</span>
+                    </h1>
+                    <h2 class="hero-subtitle">
+                        <span id="typing-text"></span><span class="cursor">|</span>
+                    </h2>
+                    <p class="hero-description">
+                        I am a Software Engineer and Go Backend Developer specializing in crafting robust, highly concurrent REST & gRPC APIs, optimizing databases, and engineering scalable microservices with clean architecture.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="mailto:balsangram1@gmail.com" class="btn btn-primary btn-glow">Hire Me</a>
+                        <a href="#projects" class="btn btn-secondary">View Work</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/balsangram" target="_blank" rel="noopener" aria-label="GitHub" class="social-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <span class="social-label">GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/sangram-bal-854a36222/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            <span class="social-label">LinkedIn</span>
+                        </a>
+                        <a href="mailto:balsangram1@gmail.com" aria-label="Email" class="social-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span class="social-label">Email</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-glowing-glow"></div>
+                    <div class="visual-container">
+                        <!-- We can render your portrait or an elegant visual representing backend architecture -->
+                        <div class="visual-frame">
+                            <img src="img/sangram.png" alt="Sangram Bal" class="hero-avatar" onerror="this.src='https://placehold.co/400x400/0f172a/06b6d4?text=Sangram+Bal'">
+                            <div class="tech-orbit ring-1"></div>
+                            <div class="tech-orbit ring-2"></div>
+                            <div class="floating-tech go-node" title="Go (Golang)">
+                                <span>Go</span>
+                            </div>
+                            <div class="floating-tech redis-node" title="Redis">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2L2 7l10 5 10-5-10-5zm0 10L2 17l10 5 10-5-10-5z"></path></svg>
+                            </div>
+                            <div class="floating-tech db-node" title="PostgreSQL">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM11 6h2v6h-2V6zm0 8h2v2h-2v-2z"></path></svg>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> -->
-        <!-- =====================page-3=================== -->
-        <div id="page-3">
-            <div class="header">
-                <p>Get To Know More
-                    <br> <span class="about">Skill</span>
-                </p>
-            </div>
+        </section>
+
+        <!-- ===================== Work Experience Section =================== -->
+        <section id="experience" class="section-padding">
             <div class="container">
-                <div class="left">
-                    <div class="card">
-                        <p class="head">Proficient</p>
-                        <p>Javascript</p>
-                        <p>Python</p>
-                        <p>React.js</p>
-                        <p>Tailwind CSS</p>
-                        <p>BootStrap</p>
-                        <p>Git</p>
-                        <p>Linux</p>
-                        <p>Adobe Illustrator</p>
-                        <p>WordPress</p>
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Professional Experience</h2>
+                    <div class="section-line"></div>
+                    <p class="section-subtitle">My engineering journey and professional contributions.</p>
+                </div>
+                
+                <div class="timeline scroll-reveal">
+                    <!-- Experience Card 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge">
+                            <span class="badge-dot"></span>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="card-header-flex">
+                                <div>
+                                    <h3 class="role-title">Software Engineer / Go Backend Developer</h3>
+                                    <h4 class="company-name">KODS Technologies Private Limited</h4>
+                                </div>
+                                <div class="job-meta">
+                                    <span class="job-duration">Jan 2025 – Present</span>
+                                    <span class="job-location">Bengaluru, India (Hybrid)</span>
+                                </div>
+                            </div>
+                            
+                            <ul class="experience-list">
+                                <li>
+                                    <span class="arrow-bullet">&gt;</span>
+                                    <p>Develop REST APIs using <strong>Go, Gin, Node.js, PostgreSQL, MongoDB, and Redis</strong>.</p>
+                                </li>
+                                <li>
+                                    <span class="arrow-bullet">&gt;</span>
+                                    <p>Implement <strong>JWT authentication, RBAC, and secure access control</strong> mechanisms.</p>
+                                </li>
+                                <li>
+                                    <span class="arrow-bullet">&gt;</span>
+                                    <p>Use <strong>Goroutines and Channels</strong> for concurrent processing and request handling.</p>
+                                </li>
+                                <li>
+                                    <span class="arrow-bullet">&gt;</span>
+                                    <p>Integrate <strong>Razorpay, Firebase notifications, WebSockets</strong>, and third-party APIs into applications.</p>
+                                </li>
+                                <li>
+                                    <span class="arrow-bullet">&gt;</span>
+                                    <p>Improve performance through <strong>query optimization, Redis caching</strong>, and efficient data processing.</p>
+                                </li>
+                                <li>
+                                    <span class="arrow-bullet">&gt;</span>
+                                    <p>Design reusable modules using <strong>clean architecture</strong> principles.</p>
+                                </li>
+                                <li>
+                                    <span class="arrow-bullet">&gt;</span>
+                                    <p>Collaborate with frontend and mobile teams on <strong>React.js, Next.js, and React Native</strong> integrations for deployment and maintenance.</p>
+                                </li>
+                            </ul>
+                            
+                            <div class="card-tech-tags">
+                                <span class="tech-tag">Go (Golang)</span>
+                                <span class="tech-tag">Gin</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Redis</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">WebSockets</span>
+                                <span class="tech-tag">Razorpay</span>
+                                <span class="tech-tag">React.js</span>
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">Clean Architecture</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="right">
-                    <div class="card">
-                        <p class="head">Basic</p>
-                        <p>Java</p>
-                        <p>C++</p>
-                        <p>MongoDB</p>
-                        <p>Express.js</p>
-                        <p>Node.js</p>
-                        <p>SQL</p>
-                        <p>Adobe Photoshop</p>
-                        <p>Figma</p>
+            </div>
+        </section>
+
+        <!-- ===================== Projects Section =================== -->
+        <section id="projects" class="section-padding alt-bg">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <div class="section-line"></div>
+                    <p class="section-subtitle">Production-ready systems, payment apps, and management platforms.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card scroll-reveal">
+                        <div class="project-header">
+                            <div class="project-icon-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-svg"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12" y2="18"></line><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                            </div>
+                            <h3 class="project-title">Digital Payment Application</h3>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-desc">
+                                A highly secure and robust financial processing platform engineered using the MERN stack for processing high-performance transactions.
+                            </p>
+                            <ul class="project-points">
+                                <li>Built payment features for QR transactions, wallet management, bank transfers, and real-time processing.</li>
+                            </ul>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="tech-tag">MERN Stack</span>
+                                <span class="tech-tag">React.js</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Razorpay</span>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card scroll-reveal">
+                        <div class="project-header">
+                            <div class="project-icon-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-svg"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                            </div>
+                            <h3 class="project-title">Ashram Management System</h3>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-desc">
+                                A comprehensive full-stack visitor management and digital tourism platform facilitating automated bookings and multilingual resources.
+                            </p>
+                            <ul class="project-points">
+                                <li>Created APIs for a tourism and visitor management platform with multilingual support, booking features, and audio tours.</li>
+                            </ul>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="tech-tag">MERN Stack</span>
+                                <span class="tech-tag">React.js</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">WebSockets</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card scroll-reveal">
+                        <div class="project-header">
+                            <div class="project-icon-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-svg"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                            </div>
+                            <h3 class="project-title">Delivery and Stock Management System</h3>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-desc">
+                                An automated tracking and inventory control system built to manage dispatches and synchronize stocks dynamically.
+                            </p>
+                            <ul class="project-points">
+                                <li>Developed delivery tracking and inventory modules with payment integration and optimized database queries.</li>
+                            </ul>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="tech-tag">Go (Golang)</span>
+                                <span class="tech-tag">Gin</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">Redis</span>
+                                <span class="tech-tag">DB Optimization</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card scroll-reveal">
+                        <div class="project-header">
+                            <div class="project-icon-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-svg"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                            </div>
+                            <h3 class="project-title">Music Application</h3>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-desc">
+                                A high-fidelity music streaming ecosystem engineered with Next.js, Prisma, TypeScript, and PostgreSQL for robust playlist management and low-latency audio distribution.
+                            </p>
+                            <ul class="project-points">
+                                <li>Built a high-fidelity music application using Next.js, Prisma, TypeScript, and PostgreSQL for robust playlist management and streaming.</li>
+                            </ul>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Prisma ORM</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== Skills Section =================== -->
+        <section id="skills" class="section-padding">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Technical Expertise</h2>
+                    <div class="section-line"></div>
+                    <p class="section-subtitle">A detailed breakdown of my engineering skills and tools.</p>
+                </div>
+
+                <div class="skills-showcase scroll-reveal">
+                    <!-- Tab Headers -->
+                    <div class="skills-tabs">
+                        <button class="tab-btn active" data-tab="backend">Backend & Core</button>
+                        <button class="tab-btn" data-tab="databases">Databases</button>
+                        <button class="tab-btn" data-tab="languages">Languages</button>
+                        <button class="tab-btn" data-tab="frontend">Frontend & Mobile</button>
+                        <button class="tab-btn" data-tab="tools">Tools & DevOps</button>
+                    </div>
+
+                    <!-- Tab Contents -->
+                    <div class="tab-container">
+                        
+                        <!-- Backend Tab -->
+                        <div class="tab-content active" id="backend">
+                            <div class="skills-grid">
+                                <div class="skill-card">
+                                    <span class="skill-icon">🐹</span>
+                                    <h4 class="skill-name">Go (Golang)</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 95%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🚀</span>
+                                    <h4 class="skill-name">Gin Framework</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🟢</span>
+                                    <h4 class="skill-name">Node.js</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 85%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🚀</span>
+                                    <h4 class="skill-name">Express.js</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 85%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🔌</span>
+                                    <h4 class="skill-name">REST APIs & gRPC</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 95%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🔄</span>
+                                    <h4 class="skill-name">WebSockets</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 85%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🔒</span>
+                                    <h4 class="skill-name">JWT & RBAC Security</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🌐</span>
+                                    <h4 class="skill-name">Microservices</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 88%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">⚡</span>
+                                    <h4 class="skill-name">Concurrent Programming</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 95%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">⚙️</span>
+                                    <h4 class="skill-name">Goroutines & Channels</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 95%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🛰️</span>
+                                    <h4 class="skill-name">API Development</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 92%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🏗️</span>
+                                    <h4 class="skill-name">System Design</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 85%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🏗️</span>
+                                    <h4 class="skill-name">Clean Architecture</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">📊</span>
+                                    <h4 class="skill-name">Database Optimization</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🛠️</span>
+                                    <h4 class="skill-name">CI/CD</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 80%;"></span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Databases Tab -->
+                        <div class="tab-content" id="databases">
+                            <div class="skills-grid">
+                                <div class="skill-card">
+                                    <span class="skill-icon">🐘</span>
+                                    <h4 class="skill-name">PostgreSQL</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🍃</span>
+                                    <h4 class="skill-name">MongoDB</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 85%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🐬</span>
+                                    <h4 class="skill-name">MySQL</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 85%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">⚡</span>
+                                    <h4 class="skill-name">Redis</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">💎</span>
+                                    <h4 class="skill-name">Prisma ORM</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Languages Tab -->
+                        <div class="tab-content" id="languages">
+                            <div class="skills-grid">
+                                <div class="skill-card">
+                                    <span class="skill-icon">🐹</span>
+                                    <h4 class="skill-name">Go (Golang)</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 95%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🟨</span>
+                                    <h4 class="skill-name">JavaScript</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🟦</span>
+                                    <h4 class="skill-name">TypeScript</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 85%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">📊</span>
+                                    <h4 class="skill-name">SQL</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Frontend Tab -->
+                        <div class="tab-content" id="frontend">
+                            <div class="skills-grid">
+                                <div class="skill-card">
+                                    <span class="skill-icon">⚛️</span>
+                                    <h4 class="skill-name">React.js</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 80%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">▲</span>
+                                    <h4 class="skill-name">Next.js</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 75%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">📱</span>
+                                    <h4 class="skill-name">React Native</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 70%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🌐</span>
+                                    <h4 class="skill-name">HTML5</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🎨</span>
+                                    <h4 class="skill-name">CSS3</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🎨</span>
+                                    <h4 class="skill-name">Tailwind CSS</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 85%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">📦</span>
+                                    <h4 class="skill-name">Bootstrap</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 85%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🧱</span>
+                                    <h4 class="skill-name">Material UI</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 80%;"></span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tools Tab -->
+                        <div class="tab-content" id="tools">
+                            <div class="skills-grid">
+                                <div class="skill-card">
+                                    <span class="skill-icon">🐙</span>
+                                    <h4 class="skill-name">Git</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🐙</span>
+                                    <h4 class="skill-name">GitHub</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🐳</span>
+                                    <h4 class="skill-name">Docker</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 80%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🛠️</span>
+                                    <h4 class="skill-name">Jenkins</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 75%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🐧</span>
+                                    <h4 class="skill-name">Linux</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 85%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">🔥</span>
+                                    <h4 class="skill-name">Firebase</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 80%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">📮</span>
+                                    <h4 class="skill-name">Postman</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                                <div class="skill-card">
+                                    <span class="skill-icon">💻</span>
+                                    <h4 class="skill-name">VS Code</h4>
+                                    <div class="skill-level"><span class="level-fill" style="width: 90%;"></span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== Education Section =================== -->
+        <section id="education" class="section-padding alt-bg">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Academic Background</h2>
+                    <div class="section-line"></div>
+                    <p class="section-subtitle">My educational history and qualifications.</p>
+                </div>
+
+                <div class="education-timeline scroll-reveal">
+                    <div class="education-card">
+                        <div class="edu-header">
+                            <div class="edu-logo-fallback">SUIIT</div>
+                            <div class="edu-title-group">
+                                <h3 class="degree-title">Bachelor of Technology in Computer Science and Engineering</h3>
+                                <h4 class="institute-name">Sambalpur University Institute of Information Technology</h4>
+                            </div>
+                            <span class="edu-year">2023</span>
+                        </div>
+                        <div class="edu-body">
+                            <p>Completed intensive study in computer science theory and engineering paradigms, scoring standard academic qualifications. Deeply focused on concurrent programming models, compiler systems, data structures and algorithms, database management, and network protocols.</p>
+                            <div class="edu-meta">
+                                <span class="edu-stat"><strong>Domain:</strong> Computer Science</span>
+                                <span class="edu-stat"><strong>Status:</strong> Graduated</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== Contact Section =================== -->
+        <section id="contact" class="section-padding">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Let's Connect</h2>
+                    <div class="section-line"></div>
+                    <p class="section-subtitle">Reach out for opportunities, collaborations, or general questions.</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <!-- Contact Info -->
+                    <div class="contact-info scroll-reveal">
+                        <h3 class="contact-info-title">Contact Information</h3>
+                        <p class="contact-info-desc">Feel free to drop a message or reach out through my direct links. I am always open to discussing new software architectures, backend projects, or career opportunities.</p>
+                        
+                        <div class="info-items-list">
+                            <!-- Phone -->
+                            <div class="info-item-card">
+                                <div class="info-item-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                </div>
+                                <div class="info-item-details">
+                                    <span class="info-label">Phone</span>
+                                    <a href="tel:+916370404471" class="info-value">+91 6370404471</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="info-item-card">
+                                <div class="info-item-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                </div>
+                                <div class="info-item-details">
+                                    <span class="info-label">Email</span>
+                                    <a href="mailto:balsangram1@gmail.com" class="info-value">balsangram1@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <!-- Location -->
+                            <div class="info-item-card">
+                                <div class="info-item-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                </div>
+                                <div class="info-item-details">
+                                    <span class="info-label">Current Location</span>
+                                    <span class="info-value">Bengaluru, Karnataka, India</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
             </div>
-        </div>
-        <!-- =====================page-4=================== -->
-        <div id="page-4">
-            <div>
-                <p>Browse My Recent
-                    <br> <span class="Projects">Projects</span>
-                </p>
-            </div>
-            <!-- project-1  -->
-            <div class="card">
-                <div class="left">
-                    <img src="img/chart-app.png" alt="">
-                </div>
-                <div class="right">
-                    <p class="project-name">Chat Application</p>
-                    <p class="ditels">•Implemented authentication and authorization using JWT, ensuring multi users
-                        secure access to the chat application.</p>
-                    <p class="ditels">•Leveraged Socket.IO to enable real-time communication , enhancing the
-                        interactivity of the chat
-                        application.</p>
-                    <div class="project-btn">
-                        <button>Code</button>
-                        <button>Live</button>
-                    </div>
-                </div>
-            </div>
-            <!-- project-2  -->
-            <div class=" card-re">
-                <div class="right">
-                    <p class="project-name">E-Commerce Website</p>
-                    <p class="ditels">•Experienced in developing e-commerce frontend projects utilizing ReactJS, HTML5,
-                        CSS3, and JavaScript.</p>
-                    <p class="ditels">•Successfully created a dynamic shopping website integrated with Fake Store API,
-                        employing React
-                        Router Dom and React
-                        Redux for seamless navigation and state management.</p>
-                    <p class="ditels">•Proficient in adding and managing products within the cart feature for enhanced
-                        user experience.
-                    </p>
-                    <div class="project-btn">
-                        <button>Code</button>
-                        <button>Live</button>
-                    </div>
-                </div>
-                <div class="left">
-                    <img src="img/e-commerce.png" alt="">
-                </div>
-            </div>
-        </div>
-        <!-- =====================page-4=================== -->
-        <div id="page-5">
-            <div class="head">
-                <p>Get In Touch
-                    <br> <span class="Contact">Contact Me</span>
-                </p>
-            </div>
+        </section>
+        
+    </main>
 
-            <div class="contact-line">
-                <svg fill="#000000" height="25px" width="25px" version="1.1" id="Capa_1"
-                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 216 216"
-                    xml:space="preserve">
-                    <path d="M108,0C48.353,0,0,48.353,0,108s48.353,108,108,108s108-48.353,108-108S167.647,0,108,0z M156.657,60L107.96,98.498
-            	L57.679,60H156.657z M161.667,156h-109V76.259l50.244,38.11c1.347,1.03,3.34,1.545,4.947,1.545c1.645,0,3.073-0.54,4.435-1.616
-            	l49.374-39.276V156z" />
-                </svg>
-                <label for=""><a href="mailto:email@gmail.com,balsangram1@gmail.com">@email.com</a> </label>
-                <svg fill="#000000" height="25px" width="25px" version="1.1" id="Capa_1"
-                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 216 216"
-                    xml:space="preserve">
-                    <path d="M108,0C48.353,0,0,48.353,0,108s48.353,108,108,108s108-48.353,108-108S167.647,0,108,0z M156.657,60L107.96,98.498
-            	L57.679,60H156.657z M161.667,156h-109V76.259l50.244,38.11c1.347,1.03,3.34,1.545,4.947,1.545c1.645,0,3.073-0.54,4.435-1.616
-            	l49.374-39.276V156z" />
-                </svg>
-                <label for=""> <a href="https://www.linkedin.com/in/sangram-bal-854a36222/">Linkdin</a></label>
+    <!-- ===================== Footer =================== -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="#home" class="footer-logo">Sangram<span class="dot">.go</span></a>
+                <p class="footer-tagline">Building concurrent, resilient systems with Go.</p>
             </div>
-            <div>
-                <ul>
-                    <li><a href="#page-1">Home</a> </li>
-                    <li><a href="#page-2">Education</a></li>
-                    <li><a href="#page-3">Skills</a></li>
-                    <li><a href="#page-4">Projects</a></li>
-                    <li><a href="#page-5">Contact Me</a></li>
-                </ul>
+            <div class="footer-right">
+                <p class="copyright">&copy; 2026 Sangram Bal. All Rights Reserved.</p>
+                <p class="made-by">Handcrafted with Go-level efficiency & Vanilla CSS.</p>
             </div>
         </div>
-        <!-- =====================footer=================== -->
-        <footer>
-            <p>Copyright &copy; 2023 Sangram Bal.All Rights Reserved</p>
-        </footer>
+        <button id="scroll-to-top" class="scroll-to-top-btn" aria-label="Scroll to top">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </button>
+    </footer>
 
-        <script src="script.js"></script>
+    <!-- GSAP Animations -->
+    <script src="node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="node_modules/gsap/dist/ScrollTrigger.min.js"></script>
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 
 </html>
