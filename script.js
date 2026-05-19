@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // -------------------------------------------------------------
     let lenis = null;
 
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 768 && typeof Lenis !== 'undefined') {
         lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // High-fidelity inertia easing
@@ -23,14 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
         // Make lenis globally accessible for link overrides
         window.lenis = lenis;
 
-        // Connect Lenis with GSAP ScrollTrigger
-        lenis.on('scroll', ScrollTrigger.update);
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            // Connect Lenis with GSAP ScrollTrigger
+            lenis.on('scroll', ScrollTrigger.update);
 
-        gsap.ticker.add((time) => {
-            lenis.raf(time * 1000);
-        });
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
 
-        gsap.ticker.lagSmoothing(0);
+            gsap.ticker.lagSmoothing(0);
+        }
 
         // Freeze scroll during compilation loading screen
         lenis.stop();
@@ -246,9 +248,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // 6. GSAP Entrance and Scroll animations
     // -------------------------------------------------------------
     // Register GSAP plugins
-    gsap.registerPlugin(ScrollTrigger);
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+    }
 
     function initHeroGSAP() {
+        if (typeof gsap === 'undefined') return;
         const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
         
         // Set initial states for elements
@@ -279,6 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function initScrollAnimations() {
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
         // Ensure all parent reveal containers are visible for GSAP child animations
         const parentReveals = document.querySelectorAll(".timeline, .skills-showcase, .education-timeline, .contact-info, .section-header");
         gsap.set(parentReveals, { opacity: 1, y: 0 });
@@ -431,13 +437,15 @@ document.addEventListener("DOMContentLoaded", () => {
                         const cards = content.querySelectorAll(".skill-card");
                         const fills = content.querySelectorAll(".level-fill");
                         
-                        gsap.set(cards, { opacity: 0, scale: 0.9, y: 15 });
-                        gsap.to(cards, { opacity: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.05, ease: "back.out(1.2)" });
-                        
-                        fills.forEach(fill => {
-                            const targetWidth = fill.style.width;
-                            gsap.fromTo(fill, { width: "0%" }, { width: targetWidth, duration: 1.0, ease: "power2.out" });
-                        });
+                        if (typeof gsap !== 'undefined') {
+                            gsap.set(cards, { opacity: 0, scale: 0.9, y: 15 });
+                            gsap.to(cards, { opacity: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.05, ease: "back.out(1.2)" });
+                            
+                            fills.forEach(fill => {
+                                const targetWidth = fill.style.width;
+                                gsap.fromTo(fill, { width: "0%" }, { width: targetWidth, duration: 1.0, ease: "power2.out" });
+                            });
+                        }
                     }, 50);
                 }
             });
@@ -448,6 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 8. 3D Card Hover Tilt Animation Suite
     // -------------------------------------------------------------
     function initProject3DTilt() {
+        if (typeof gsap === 'undefined') return;
         const cards = document.querySelectorAll(".project-card");
         if (cards.length === 0) return;
 
