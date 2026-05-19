@@ -6,31 +6,35 @@ document.addEventListener("DOMContentLoaded", () => {
     // -------------------------------------------------------------
     // 0. Smooth Momentum Scroll Initialization (Lenis + GSAP Sync)
     // -------------------------------------------------------------
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // High-fidelity inertia easing
-        orientation: 'vertical',
-        gestureOrientation: 'vertical',
-        smoothWheel: true,
-        wheelMultiplier: 1.0,
-        touchMultiplier: 1.5,
-        infinite: false
-    });
+    let lenis = null;
 
-    // Make lenis globally accessible for link overrides
-    window.lenis = lenis;
+    if (window.innerWidth > 768) {
+        lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // High-fidelity inertia easing
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 1.0,
+            touchMultiplier: 1.5,
+            infinite: false
+        });
 
-    // Connect Lenis with GSAP ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
+        // Make lenis globally accessible for link overrides
+        window.lenis = lenis;
 
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-    });
+        // Connect Lenis with GSAP ScrollTrigger
+        lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.lagSmoothing(0);
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
 
-    // Freeze scroll during compilation loading screen
-    lenis.stop();
+        gsap.ticker.lagSmoothing(0);
+
+        // Freeze scroll during compilation loading screen
+        lenis.stop();
+    }
 
     // -------------------------------------------------------------
     // 1. Terminal Loader Fade-Out
@@ -73,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.style.overflowY = "auto"; // Unlock scroll
             
             // Unlock Lenis scroll engine
-            lenis.start();
+            if (lenis) lenis.start();
             
             // GSAP Entrance Animations
             initHeroGSAP();
@@ -146,10 +150,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Scroll to top action using Lenis
+    // Scroll to top action using Lenis/Native scroll fallback
     if (scrollToTopBtn) {
         scrollToTopBtn.addEventListener("click", () => {
-            lenis.scrollTo(0, { duration: 1.5 });
+            if (lenis) {
+                lenis.scrollTo(0, { duration: 1.5 });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         });
     }
 
@@ -169,10 +177,10 @@ document.addEventListener("DOMContentLoaded", () => {
         // Prevent body scrolling when menu is open
         if (navMenu.classList.contains("active")) {
             document.body.style.overflow = "hidden";
-            lenis.stop(); // Stop Lenis scroll when menu is active
+            if (lenis) lenis.stop(); // Stop Lenis scroll when menu is active
         } else {
             document.body.style.overflow = "auto";
-            lenis.start(); // Resume Lenis scroll
+            if (lenis) lenis.start(); // Resume Lenis scroll
         }
     }
     
@@ -184,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navOverlay.addEventListener("click", toggleMenu);
     }
     
-    // Close drawer and trigger smooth Lenis scroll to anchor
+    // Close drawer and trigger smooth Lenis/Native scroll to anchor
     navLinks.forEach(link => {
         link.addEventListener("click", (e) => {
             const targetId = link.getAttribute("href");
@@ -192,7 +200,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 e.preventDefault();
                 const targetSec = document.querySelector(targetId);
                 if (targetSec) {
-                    lenis.scrollTo(targetSec, { offset: -80, duration: 1.2 });
+                    if (lenis) {
+                        lenis.scrollTo(targetSec, { offset: -80, duration: 1.2 });
+                    } else {
+                        const offsetPosition = targetSec.getBoundingClientRect().top + window.scrollY - 80;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             }
             if (navMenu.classList.contains("active")) {
