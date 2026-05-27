@@ -1,164 +1,66 @@
-````md
-<h1 align="center">Hi 👋, I'm Sangram Bal</h1>
-
-<h3 align="center">
-Full Stack Developer | MERN Stack Engineer | Building Scalable Web Applications
-</h3>
+<h1 align="center">⚡ Sangram Bal</h1>
+<h3 align="center">Building Robust Systems with Go & the MERN Stack</h3>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=00C2FF&center=true&vCenter=true&width=700&lines=Full+Stack+MERN+Developer;React+%7C+Node.js+%7C+MongoDB+%7C+TypeScript;Building+Scalable+and+Modern+Applications;Passionate+About+Clean+Code+and+System+Design" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&pause=1000&color=2D9BF0&center=true&vCenter=true&width=500&lines=Go+%7C+Node.js+Backend+Engineer;MERN+Stack+Developer;Scalable+APIs+%26+Microservices;2%2B+Years+of+Production+Impact" alt="Typing SVG" />
 </p>
 
 ---
 
-<img align="right" alt="coding" width="380" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" />
+### 👨‍💻 About Me
 
-## 🚀 About Me
+I'm a backend-focused full-stack developer who thrives on building scalable, high-performance systems. With over 2 years of hands-on experience, I bridge the gap between elegant front-end experiences and robust, production-ready backends.
 
-- 💼 Full Stack Developer with experience building scalable and production-ready applications.
-- 🔥 Specialized in the **MERN Stack** with strong backend knowledge.
-- ⚙️ Working with:
-  - React.js
-  - Next.js
-  - Node.js
-  - Express.js
-  - MongoDB
-  - TypeScript
-  - Go (Golang)
-
-- 🌱 Currently learning:
-  - System Design
-  - Microservices
-  - AWS & Cloud Infrastructure
-  - Performance Optimization
-
-- 💡 Passionate about:
-  - Clean Architecture
-  - REST APIs
-  - Real-Time Applications
-  - Scalable Backend Systems
-
-- 📫 Reach me at:
-  **balsangram1@gmail.com**
+- 🔭 **Current Focus:** Deepening my expertise in **Go (Golang)** for high-concurrency microservices.
+- 🌱 **Learning Path:** System Design, Event-Driven Architecture, AWS Cloud Solutions.
+- 💬 **Ask me about:** Go, Node.js, MERN stack, REST API design, and real-time systems.
+- 📫 **Let's connect:** sangram@example.com *(Replace with your email)*
+- ⚡ **Motivation:** "Simplicity is the ultimate sophistication."
 
 ---
 
-# 🌐 Connect With Me
+### 🤝 Connect With Me
 
 <p align="left">
-<a href="https://www.linkedin.com/in/sangram-bal-854a36222/" target="blank">
-<img src="https://skillicons.dev/icons?i=linkedin" height="45" />
-</a>
-
-<a href="https://github.com/balsangram" target="blank">
-<img src="https://skillicons.dev/icons?i=github" height="45" />
-</a>
+  <a href="https://www.linkedin.com/in/sangram-bal-854a36222/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+  <a href="https://github.com/balsangram" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+  </a>
+  <a href="mailto:sangram@example.com" target="_blank">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
+  </a>
 </p>
 
 ---
 
-# 💻 Tech Stack
+### 🛠️ Technical Arsenal
 
-## 🎨 Frontend
+#### **Backend Engineering**
+![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
 
-<p>
-<img src="https://skillicons.dev/icons?i=react,nextjs,ts,js,html,css,tailwind,redux" />
-</p>
+#### **Frontend Development**
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-## ⚙️ Backend
+#### **Databases & Caching**
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
 
-<p>
-<img src="https://skillicons.dev/icons?i=nodejs,express,golang" />
-</p>
+#### **DevOps & Tools**
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
-## 🗄️ Database & Tools
 
-<p>
-<img src="https://skillicons.dev/icons?i=mongodb,mysql,postgres,redis,firebase" />
-</p>
 
-## ☁️ DevOps & Cloud
-
-<p>
-<img src="https://skillicons.dev/icons?i=docker,aws,git,github,postman,linux" />
-</p>
-
----
-
-# 🚀 Featured Projects
-
-### 🔹 Swastic Ecosystem Platform
-A complete MERN ecosystem platform including:
-- Education
-- Healthcare
-- Elections
-- Messaging
-- Online Shopping
-- Digital Identity System
-
-### 🔹 Travel Companion Platform
-A travel networking application where users can:
-- Find travel partners
-- Create groups
-- Hire guides
-- Manage trip expenses
-
-### 🔹 Real-Time Chat Application
-Built using:
-- React
-- Node.js
-- Socket.io
-- MongoDB
-
-Features:
-- Real-time messaging
-- Authentication
-- Group chat support
-
----
-
-# 📊 GitHub Stats
-
-<p align="center">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=balsangram&show_icons=true&theme=tokyonight&hide_border=true" />
-
-  <img width="48%" src="https://github-readme-streak-stats.herokuapp.com/?user=balsangram&theme=tokyonight&hide_border=true" />
-</p>
-
-<p align="center">
-  <img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=balsangram&layout=compact&theme=tokyonight&hide_border=true" />
-</p>
-
----
-
-# 🏆 Achievements
-
-- 🚀 Built multiple full-stack MERN applications
-- 💡 Worked on scalable production systems
-- 🌍 Experience with multilingual applications
-- 🔥 Strong problem-solving and debugging skills
-- ⚡ Experience in real-time systems & API integrations
-
----
-
-# ⚡ Fun Fact
-
-```javascript
-while(alive) {
-   eat();
-   code();
-   sleep();
-   repeat();
-}
-````
-
----
-
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=balsangram&label=Profile%20Views&color=0e75b6&style=flat" />
-</p>
-
-<h3 align="center">
-✨ “First, solve the problem. Then, write the code.” ✨
-</h3>
-```
